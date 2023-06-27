@@ -4,7 +4,7 @@
   align-items: center;
   height: 10vh;
   padding: 0 20px;
-  background-color: #00F;
+  background-color: rgb(46, 46, 103);
 }
 
 .header-button {
@@ -28,5 +28,5 @@
 }
 .footer {
   height: 10vh;
-  background-color: #00F;
+  background-color: rgb(46, 46, 103);
 }

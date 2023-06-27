@@ -14,7 +14,7 @@ class ListMovieComponent extends Component {
 
         this.showLoginForm = this.showLoginForm.bind(this);
         this.hideLoginForm = this.hideLoginForm.bind(this);
-        
+
     }
     // componentDidMount(){
     //     MovieService.getMovies().then(res => {
@@ -45,11 +45,12 @@ class ListMovieComponent extends Component {
             movie.toLowerCase().includes(this.state.search.toLowerCase())
           );
         return (
-        <div className='app-container'>
+        <div className='app-container' >
         {this.state.showSignupForm && <SignupForm onClose={this.hideSignupForm} />}
         {this.state.showLoginForm && <LoginForm onClose={this.hideLoginForm} />}
         
             <div className="header">
+                <button className="header-button" >Request Membership</button>
                 <button className="header-button" onClick={this.showSignupForm}>Sign Up</button>
                 <button className="header-button" onClick={this.showLoginForm}>Log In</button>
             </div>
