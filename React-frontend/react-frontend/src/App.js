@@ -1,16 +1,16 @@
-import './App.css';
-import ListMovieComponent from './components/ListMovieComponent';
+import React from 'react';
+import Header from './components/Header';
+import ListMovie from './components/ListMovie';
+import Footer from './components/Footer';
 
 function App() {
-  const myStyle = {
-  width : '-webkit-fill-available'
-  };
-
-  return (
-    <div className='container' style={myStyle}> 
-      <ListMovieComponent/>
-    </div>
-  );
+    return (
+        <div className='app-container'>
+            <Header />
+            <ListMovie />
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
