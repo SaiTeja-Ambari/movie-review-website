@@ -16,7 +16,7 @@ class ListMovie extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/movies')  // replace with your actual API endpoint
+        fetch('http://localhost:8080/movies')  
             .then(response => {
                 if (response.ok) {
                     return response.json();

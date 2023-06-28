@@ -2,12 +2,14 @@ package com.example.movie.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.movie.service.MovieService;
 import com.example.movie.entity.MovieEntity;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class MovieController {
     private final MovieService movieService;
@@ -21,5 +23,4 @@ public class MovieController {
         return movieService.getAllMovies();
     }
 
-    // More controller methods...
 }

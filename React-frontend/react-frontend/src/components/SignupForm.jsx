@@ -18,9 +18,22 @@ function SignupForm({ onClose }) {
         setError("Passwords do not match.");
     } else {
         setError(""); // clear any previous error
-        alert(`User signed up with email: ${email}`);
         onClose();
-    }
+    
+    fetch('http://localhost:8080/user/postusers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch((error) => console.error('Error:', error));
+  }
 };
 
 
