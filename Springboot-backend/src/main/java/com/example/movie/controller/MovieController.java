@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.movie.service.MovieService;
@@ -19,8 +20,10 @@ public class MovieController {
     }
 
     @GetMapping("/movies")
-    public List<MovieEntity> getAllMovies() {
-        return movieService.getAllMovies();
+    public List<MovieEntity> getAllMovies(@RequestParam(defaultValue = "") String title) {
+
+            return movieService.getAllMovies(title);
+
     }
 
 }

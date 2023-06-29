@@ -18,8 +18,13 @@ public class MovieService {
     }
 
     // Method to get all movies
-    public List<MovieEntity> getAllMovies() {
-        return movieRepository.findAll();
+    public List<MovieEntity> getAllMovies(String title) {
+        if (title.equals("")) {
+            return movieRepository.findAll();
+        }
+        else {
+            return movieRepository.findByTitle(title);
+        }
     }
 
     // More service methods...
