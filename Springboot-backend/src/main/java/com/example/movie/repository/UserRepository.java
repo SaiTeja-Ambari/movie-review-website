@@ -6,4 +6,6 @@ import com.example.movie.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	  // Add queries if needed
+    UserEntity findByEmailAndPassword(String email, String password);
+
 	}

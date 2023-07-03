@@ -19,7 +19,7 @@ public class UserService {
     userRepository.save(user);
   }
 
-  public List<UserEntity> getAllUsers() {
-    return userRepository.findAll();
+  public UserEntity getAllUsers(String email, String password) {
+    return userRepository.findByEmailAndPassword(email, password);
   }
 }
