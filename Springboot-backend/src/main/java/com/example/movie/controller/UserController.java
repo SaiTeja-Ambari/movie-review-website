@@ -36,9 +36,10 @@ public class UserController {
       }
   }
 
-  @GetMapping("/getuser/{email}/{password}")
-  public UserEntity getAllUsers(@PathVariable String email, @PathVariable String password) {
-      return userService.getAllUsers(email, password);
+  @PostMapping("/getuser")
+  public UserEntity getAllUsers(@RequestBody UserEntity user) {
+      return userService.getAllUsers(user.getEmail(), user.getPassword());
   }
+
 
 }
