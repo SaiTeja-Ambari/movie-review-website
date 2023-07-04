@@ -5,10 +5,25 @@ function LoginForm({ onClose }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform login operation
-    alert(`User logged in with email: ${email}`);
+    const user = {
+      email: email,
+      password: password
+    };
+    const response = await fetch('http://localhost:8080/user/getuser', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
+    const data = await response.json();
+    if (data.email) { 
+      alert('User exists');
+    } else {
+      alert('User does not exist');
+    }
     onClose();
   };
 
