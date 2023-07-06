@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
 
-function LoginForm({ onClose }) {
+function LoginForm({ onClose, onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,13 +18,25 @@ function LoginForm({ onClose }) {
       },
       body: JSON.stringify(user)
     });
-    const data = await response.json();
-    if (data.email) { 
-      alert('User exists');
+    if (response.ok) {
+      const text = await response.text();
+      if (text) {
+        const data = JSON.parse(text);
+        if (data.email) {
+          alert('User exists');
+          onLogin(true);
+        } else {
+          alert('User does not exist');
+          onLogin(false);
+        }
+      } else {
+        alert('User does not exist');
+        onLogin(false);
+      }
+      onClose();
     } else {
-      alert('User does not exist');
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-    onClose();
   };
 
   return (
